@@ -55,7 +55,7 @@ Updating assets
 
 
 Testing
------
+-------
 
 Run once:
 ```
@@ -69,3 +69,8 @@ $ make test # Run tests
 $ make htmltest # Convert test cverage to HTML
 $ make stryker # Get test coverage
 ```
+
+License
+-------
+
+MIT, see LICENSE
