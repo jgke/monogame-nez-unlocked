@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<PublishReadyToRun>false</PublishReadyToRun>
+		<TieredCompilation>false</TieredCompilation>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>Icon.ico</ApplicationIcon>
+	</PropertyGroup>
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A3C19CC-557D-4009-82D6-92B511EA4172}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BuildSimpleProject</RootNamespace>
+    <AssemblyName>BuildSimpleProject</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+
+
+	<ItemGroup>
+		<None Remove="Icon.ico" />
+		<None Remove="Icon.bmp" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Icon.ico" />
+		<EmbeddedResource Include="Icon.bmp" />
+	</ItemGroup>
+	<ItemGroup>
+		<TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.csproj" />
+		<ProjectReference Include="..\Nez\Nez.ImGui\Nez.MG38.ImGui.csproj" />
+		<ProjectReference Include="..\Nez\Nez.Persistence\Nez.MG38.Persistence.csproj" />
+		<ProjectReference Include="..\Nez\Nez.Portable\Nez.MG38.csproj" />
+	</ItemGroup>
+
+	<!-- Includes Content folder, Nez default effects and textures -->
+	<ItemGroup>
+		<Content Include="../Nez/DefaultContent/MG3.8Effects/**/*.mgfxo">
+			<Link>Content/nez/effects/%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+		</Content>
+		<Content Include="../Nez/DefaultContent/textures/**/*.xnb">
+			<Link>Content/nez/textures/%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+		</Content>
+
+	</ItemGroup>
+
+	<!-- Include the Content directory (except for .fx files, since we use .fxb at runtime) -->
+	<ItemGroup>
+		<Content Include="Content\**\*" Exclude="**\*.fx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="ContentPaths.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ContentPaths.tt</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="ContentPaths.tt">
+	    <Generator>TextTemplatingFileGenerator</Generator>
+	    <LastGenOutput>ContentPaths.cs</LastGenOutput>
+	  </None>
+	</ItemGroup>
+</Project>

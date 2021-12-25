@@ -1,0 +1,23 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	autocrlf = input
+	whitespace = blank-at-eol,blank-at-eof,tab-in-indent
+[submodule "Nez"]
+	url = https://github.com/prime31/Nez
+	active = true
+[remote "origin"]
+	url = git@github.com:jgke/gamebase.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+[submodule "MonoGame"]
+	url = https://github.com/MonoGame/MonoGame.git
+	active = true
+[submodule "ECS/MonoGame.Extended"]
+	url = https://github.com/craftworkgames/MonoGame.Extended/
+	active = true

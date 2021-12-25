@@ -1,0 +1,5 @@
+GameImpl/ContentPaths.tt eol=crlf
+GameImpl/ContentPaths.cs eol=crlf
+*.sln eol=crlf
+*.csproj eol=crlf
+patches/* -text
