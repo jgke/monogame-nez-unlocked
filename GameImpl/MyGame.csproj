@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.csproj" />
+    <ProjectReference Include="..\Nez\Nez.Portable\Nez.MG38.csproj" />
     <ProjectReference Include="..\MonoGame\Tools\MonoGame.Content.Builder.Task\MonoGame.Content.Builder.Task.csproj" />
   </ItemGroup>
   <ItemGroup>
