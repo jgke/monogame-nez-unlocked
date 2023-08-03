@@ -3,7 +3,9 @@ MonoGame + Nez with unlocked fps
 
 This repository contains a fork of MonoGame and Nez which has unlocked fps but
 with a constant physics step, eg. graphics can run at 200fps but physics will
-run at constant 70fps.
+run at constant 70fps. See [this
+post](https://jgke.fi/blog/monogame-unlimited-fps-with-fixed-update/) for some
+more details.
 
 Instead of having a single `Update(GameTime)` function for every kinds of
 updates, this project has two: `FixedUpdate(GameTime)` for physics updates and
